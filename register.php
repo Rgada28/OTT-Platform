@@ -4,6 +4,8 @@ function register(){
 $username = $_POST['username'];
 $email = $_POST['email'];
 $password = $_POST['password'];
+$age=$_POST['age'];
+$country=$_POST['country'];
 
 
 $conn = new mysqli("localhost", "root", "", "project");
@@ -12,7 +14,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "INSERT INTO students_login (username, email, password) VALUES ('$username', '$email', '$password')";
+$sql = "INSERT INTO students_login (username, email, password,country,age) VALUES ('$username', '$email', '$password','$country',$age )";
 
 $fquery = $conn->query($sql);
 
@@ -56,7 +58,8 @@ $conn->close();
                     <input type='text' name="username" class='input-field' placeholder='User Name' required>
                     <input type='email' name="email" class='input-field' placeholder='Email Id' required>
                     <input type='password' name="password" id="pass" class='input-field' placeholder='Enter Password' required>
-                    <input type='password' class='input-field' placeholder='Confirm Password' required>
+                    <input type='text' name="age" class='input-field' placeholder='Age'  required>
+	  <input type='text' name="country" class='input-field' placeholder='Country'  required>
                     <input type='checkbox' class='check-box'><label>I agree the terms and conditions</label>
                     <br><label>Already have an account </label><a href="login.php" ; style="color:white">Log in</a>
                     <div>&nbsp;</div>
