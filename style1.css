@@ -4,12 +4,22 @@
     padding: 0;
     box-sizing: border-box;
 }
-.button3 {background-color: #f44336;} /* Red */
+::placeholder{
+	color: white;
+	opacity: 1;
+}
+.button3 { background-color: #4dbf00;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+	font-weight: bold;} /* Red */
 .full-page
 {
     height: 100%;
 	width: 100%;
-	background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(1.jpg);
+	background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(1.jpg);
 	background-position: center;
 	background-size: cover;
 	position: absolute;
@@ -64,23 +74,18 @@ nav ul li a:hover
 {
     color: aqua;
 }
-a
-{
-    text-decoration: none;
-    color: palevioletred;
-    font-size: 28px;
-}
 .login-form
 {
     display: none;
 }
 .form-box
 {
+	padding-top: 200px;
     width:380px;
 	height:480px;
 	position:relative;
 	margin:2% auto;
-	background:rgba(0,0,0,0.7);
+	background:rgba(0, 0, 0, 0.5);
 	padding:10px;
     overflow: hidden;
 }
@@ -114,16 +119,19 @@ a
 }
 .input-group-login
 {
-	top: 150px;
+	top: 120px;
+	left: 75px;
 	position:absolute;
-	width:280px;
+	width:250px;
 	transition:.5s;
 }
 .input-group-register
 {
+	color: white;
     top: 120px;
+	left: 75px;
 	position:absolute;
-	width:280px;
+	width:250px;
 	transition:.5s;
 }
 .input-field
@@ -134,9 +142,9 @@ a
 	border-left:0;
 	border-top:0;
 	border-right:0;
-	border-bottom: 1px solid #999;
-	outline:none;
+	border-bottom: 2px solid #ffffff;
 	background: transparent;
+	outline: none;
 	color: white;
 }
 .submit-btn
@@ -146,7 +154,7 @@ a
 	cursor: pointer;
 	display: block;
 	margin: auto;
-	background: #F3C693;
+	background: #4dbf00;
 	border: 0;
 	outline: none;
 	border-radius: 30px;
