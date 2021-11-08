@@ -32,6 +32,7 @@ if ($conn->connect_error) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style1.css">
+    <title>User Login</title>
     <!---we had linked our css file----->
 </head>
 <!-- <style>

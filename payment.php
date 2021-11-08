@@ -36,7 +36,7 @@ $conn->close();
 <!DOCTYPE html>
 <html>
 <head>
-<title>fform</title>
+<title>Payment</title>
     <script language="javascript">
         function feedb(){
         if(!isNaN((document.f1.fname.value)))
