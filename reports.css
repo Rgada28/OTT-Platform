@@ -1,0 +1,20 @@
+#mainHeading{
+    color:#340926;
+    padding-top:28px;
+    letter-spacing:4px;
+    font-family:Montserrat, sans-serif;
+    font-weight:bolder;
+  }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  
+}
+td,
+th {
+  border: 1px solid #340926;
+  text-align: left;
+  border-radius: 25px;
+  padding: 8px;
+}

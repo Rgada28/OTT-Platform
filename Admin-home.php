@@ -14,6 +14,11 @@
     <center>
         <h1>Admin Home</h1>
     </center>
+    <ul>
+        <li><a href="month.php">Monthly Reports</a></li>
+        <li><a href="year.php">Yearly Reports</a></li>
+        <li><a href="country.php">Country Reports</a></li>
+    </ul>
 </body>
 
 </html>

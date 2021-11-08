@@ -8,39 +8,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="reports.css">
 
-  <style>
-    body {
-      position: relative;
-    }
-
-    #mainHeading {
-      color: #340926;
-      padding-top: 28px;
-      letter-spacing: 4px;
-      font-family: Montserrat, sans-serif;
-      font-weight: bolder;
-    }
-
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 50%;
-
-    }
-
-    td,
-    th {
-      border: 3px solid #340926;
-      text-align: left;
-      border-radius: 25px;
-      padding: 8px;
-    }
-
-    /*tr:nth-child(even) {
-      background-color: #dddddd;
-  }*/
-  </style>
 </head>
 
 <body>
@@ -70,8 +39,8 @@
 
     echo "<table>
     <tr>
-              <td width= 40%>Month</td>
-              <td width=60%>sales amount</td> 
+              <td width= 50%>Month</td>
+              <td width=50%>sales amount</td> 
             </tr>";
 
     echo "</table>";
@@ -82,8 +51,8 @@
 
       echo "<table>
     <tr>
-              <td width= 40%>" . $row["month"] . "</td>
-              <td width=60%>" . $row['SUM(amount)'] . "</td> 
+              <td width= 50%>" . $row["month"] . "</td>
+              <td width=50%>" . $row['SUM(amount)'] . "</td> 
             </tr>";
 
       echo "</table>";
