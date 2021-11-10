@@ -24,7 +24,7 @@ function register()
 
 
 	if ($conn->query($sql) === FALSE) {
-	    echo "Error: " . $sql . "<br>" . $conn->error;
+		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 
 	$conn->close();
@@ -38,15 +38,14 @@ function register()
 
 <head>
 	<title>Payment</title>
-
+	<link href="bootstrap.min.css" rel="stylesheet">
 
 	<style type="text/css">
-		.fossil {
-			font-style: italic;
-			font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+		.fossil {			
 			text-align: center;
 			color: black;
 			position: relative;
+			top:20%;
 			left: 20%;
 			width: 60%;
 			right: 5%;
@@ -142,12 +141,12 @@ function register()
 				<label for="expyear"><b>Exp Year</b></label>
 				<input type="text" id="expyear" name="expyear" required name=expyear maxlength="4">
 			</div><br>
-			<b>amount</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<b>amount
 			<b>400</b><input type="radio" value="400" name="amount" required>&nbsp;&nbsp;&nbsp;
 			<b>200</b><input type="radio" value="200" name="amount" required><br><br>
 			<b>1200</b><input type="radio" value="1200" name="amount" required><br><br>
-			<input id="submit" type="submit" name="submit" value="submit" onclick="feedb()">&nbsp;&nbsp;&nbsp;
-			<input type="reset" value="Reset" name="rbutton">
+			<input  class="btn-success" style="width: 25%;" id="submit" type="submit" name="submit" value="submit" onclick="feedb()">&nbsp;&nbsp;&nbsp;
+			<input type="reset" class="btn-danger" style="width: 25%;" value="Reset" name="rbutton">
 			<h3><a href="index.php" style="text-decoration: none">Back to Home</a></h3>
 	</form>
 
