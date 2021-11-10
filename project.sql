@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2021 at 07:26 PM
+-- Generation Time: Nov 10, 2021 at 07:51 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -66,7 +66,20 @@ INSERT INTO `payment` (`id`, `name`, `email`, `contact`, `choice`, `amount`, `da
 (11, 'raj', 'r@gmail.com', 7350352290, 'Credit', 400, 1, 'January', 2001),
 (12, 'sam', 'sa@gmail.com', 6359874521, 'Debit', 400, 1, 'Februray', 2001),
 (13, 'ram', 'ra@gmail.com', 8789456456, 'Debit', 200, 1, 'April', 2001),
-(14, 'tanmay', 't@gmail.com', 9874563215, 'Debit', 400, 1, 'January', 2002);
+(14, 'tanmay', 't@gmail.com', 9874563215, 'Debit', 400, 1, 'January', 2002),
+(15, 'tanmay', 't@gmail.com', 7896541256, 'Debit', 1200, 4, 'Februray', 2001);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `series`
+--
+
+CREATE TABLE `series` (
+  `image` varchar(200) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -91,6 +104,28 @@ INSERT INTO `students_login` (`username`, `email`, `password`, `age`, `country`)
 ('raj', 'r@gmail.com', 'r', 23, 'india'),
 ('sam', 'sa@gmail', 'sa', 22, 'australia');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `uploadedimage`
+--
+
+CREATE TABLE `uploadedimage` (
+  `Id` int(11) NOT NULL,
+  `imagename` varchar(100) NOT NULL,
+  `genere` varchar(50) NOT NULL,
+  `name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `uploadedimage`
+--
+
+INSERT INTO `uploadedimage` (`Id`, `imagename`, `genere`, `name`) VALUES
+(5, 'anime-death-note-lawliet-l-anime-boys-wallpaper-preview.jpg', 'anime', 'death note'),
+(6, 'Fi-T-Top10-Epic-Anime-Entrances-720p30.jpg', 'anime', 'naruto'),
+(7, 'Fi-T-Top10-Epic-Anime-Entrances-720p30.jpg', 'anime', 'n');
+
 --
 -- Indexes for dumped tables
 --
@@ -102,6 +137,12 @@ ALTER TABLE `payment`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `uploadedimage`
+--
+ALTER TABLE `uploadedimage`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -109,7 +150,13 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `uploadedimage`
+--
+ALTER TABLE `uploadedimage`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
