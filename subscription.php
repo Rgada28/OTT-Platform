@@ -53,7 +53,7 @@
         $plan=$_POST['name'];
       }
       ?>
-      <form action="" method="post">
+      <form action="payment.php" method="post">
         <div class="table-responsive">
           <table class="table text-center">
             <thead>
