@@ -27,9 +27,11 @@ body {
   flex: 1;
 }
 
+
+
 .logo {
   font-size: 30px;
-  color: #4dbf00;
+  color: #e40c0c;
 }
 
 .menu-container {
@@ -55,9 +57,7 @@ body {
   justify-content: flex-end;
 }
 
-.profile-text-container {
-  margin: 0 20px;
-}
+
 
 .profile-picture {
   width: 32px;

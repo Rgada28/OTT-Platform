@@ -16,7 +16,9 @@ if ($conn->connect_error) {
     $conn->close();
 
     if($n > 0){
-      //echo "Accessed";
+      echo "Accessed";
+      session_start();
+      $_SESSION["username"] = $username;
       header("Location: index.php");
     }else{
       echo "<b>Authentication failed!</b>";
