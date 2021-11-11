@@ -108,9 +108,7 @@
     ?>
   </center>
 
-  <center>
-    <h3><a href="Admin-home.php" style="text-decoration: none">Back to Admin Section</a></h3>
-  </center>
+ 
    
               <br>
             </div>
