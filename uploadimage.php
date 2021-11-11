@@ -30,11 +30,12 @@ if (isset($_POST['uploadfilesub'])) {
 
 <!DOCTYPE html>
 <html>
+<link href="bootstrap.min.css" rel="stylesheet">
 
 <head>
     <style>
         input {
-            width: 50%;
+            width: 20%;
             height: 5%;
             border: 1px;
             border-radius: 05px;
@@ -47,13 +48,24 @@ if (isset($_POST['uploadfilesub'])) {
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-auto " href="#">Add Movie</a>
+    </div>
+  </nav>
     <center>
         <form action="" method="post" enctype="multipart/form-data">
-            <!--input tag for file types should have a "type" attribute with value "file"-->
+            <br>
+            <br>
             <input type="file" name="uploadfile" /><br><br>
             <input type="text" name="genere" placeholder="Genere" /><br><br>
             <input type="text" name="name" placeholder="Name" /><br><br>
-            <input type="submit" name="uploadfilesub" value="upload" />
+            <input class="btn btn-warning" type="submit" name="uploadfilesub" value="upload" />
+            <br>
+            <br>
+            <a href="Admin-home.php" class="btn btn-danger">Back to Admin Home</a>
+
+
         </form>
     </center>
 </body>

@@ -38,36 +38,33 @@ function register()
 
 <head>
 	<title>Payment</title>
-	<link href="bootstrap.min.css" rel="stylesheet">
-
-	<style type="text/css">
-		.fossil {			
-			text-align: center;
-			color: black;
-			position: relative;
-			top:20%;
-			left: 20%;
-			width: 60%;
-			right: 5%;
-			box-shadow: 10px 20px 50px black;
-			border-radius: 25px;
+	<style>
+		input {
+			border: 2px;
+			border-radius: 5px;
+			padding: 8px 15px 8px 15px;
+			margin: 10px 0px 15px 0px;
+			box-shadow: 1px 1px 2px 1px grey;
+			font-weight: bold
 		}
 	</style>
-
+	<link href="bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body background="p1.jpg">
+<body class="text-center">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand mx-auto " href="#">Payment</a>
+		</div>
+	</nav>
 
-	<form class="fossil" name="f1" method="post" action="index.php">
-		<center>
-			<h1>Payment</h1>
-		</center>
-		<b>Name</b>:&nbsp;
-		<input type="text" name="name" required>*<br><br>
-		<b>email</b>:&nbsp;
-		<input type="text" name="ename" required>*<br><br><br>
-		<b>contact no</b>:&nbsp;
-		<input type="text" name="cname" maxlength="10" required>*<br><br><br>
+	<form method="post" action="index.php">
+		<br>
+		<br>
+		<input type="text" name="name"  placeholder="Name" required>*
+		<br><br>
+		<input type="text" name="ename" placeholder="E-mail" required>*<br><br>
+		<input type="text" name="cname" placeholder="Phone no" maxlength="10" required>*<br><br>
 		<b>Day</b>:<select name="day" size="1" id="day">
 			<option>1</option>
 			<option>2</option>
@@ -113,14 +110,13 @@ function register()
 			<option>2012</option>
 		</select><br><br>
 
-		<b>Card no</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" maxlength="16" name="cardno" required>*<br><br>
-		<b>CVV</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="text" name="cvv" maxlength="3" required>*<br><br>
+		<input type="text" maxlength="16" placeholder="Card number" name="cardno" required>*<br><br>
+		<input type="text" name="cvv" maxlength="3" placeholder="xxx" required>*<br><br>
 		<b>Choice</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<b>Debit</b><input type="radio" value="Debit" name="radio" required>&nbsp;&nbsp;&nbsp;
 		<b>Credit</b><input type="radio" value="Credit" name="radio" required><br><br>
 		<label for="expmonth"><b>Exp Month</b></label>
-		<b>Months</b>:<select name="expmonth" size="1" id="Expmonth">
+		<select name="expmonth" size="1" id="Expmonth">
 			<option>January</option>
 			<option>Februray</option>
 			<option>March</option>
@@ -134,21 +130,22 @@ function register()
 			<option>November</option>
 			<option>December</option>
 		</select>
-		<br><br><br>
-
+		<br><br>
 		<div class="row">
 			<div class="col-50">
-				<label for="expyear"><b>Exp Year</b></label>
-				<input type="text" id="expyear" name="expyear" required name=expyear maxlength="4">
-			</div><br>
+				
+				<input type="text" id="expyear" name="expyear" placeholder="Expiry year " required name=expyear maxlength="4">
+			</div><br><br>
 			<b>amount
-			<b>400</b><input type="radio" value="400" name="amount" required>&nbsp;&nbsp;&nbsp;
-			<b>200</b><input type="radio" value="200" name="amount" required><br><br>
-			<b>1200</b><input type="radio" value="1200" name="amount" required><br><br>
-			<input  class="btn-success" style="width: 25%;" id="submit" type="submit" name="submit" value="submit" onclick="feedb()">&nbsp;&nbsp;&nbsp;
-			<input type="reset" class="btn-danger" style="width: 25%;" value="Reset" name="rbutton">
-			<h3><a href="index.php" style="text-decoration: none">Back to Home</a></h3>
+				<b>400</b><input type="radio" value="400" name="amount" required>&nbsp;&nbsp;&nbsp;
+				<b>200</b><input type="radio" value="200" name="amount" required><br><br>
+				<b>1200</b><input type="radio" value="1200" name="amount" required><br><br>
+				<input class="btn-success" id="submit" type="submit" onclick="feedb()">&nbsp;&nbsp;&nbsp;
+				<input type="reset" class="btn-danger" value="Reset" name="rbutton">
+				<br><br>
+				<h3><a href="index.php" class="btn btn-warning">Back to Home</a></h3>
 	</form>
+
 
 
 	<?php
