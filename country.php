@@ -5,18 +5,19 @@
   <title></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="bootstrap.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="reports.css">
 
 
 </head>
 
 <body>
-  <div class="container-fluid text-center" style="height:120px; background-color:#CBE432; opacity:0.9;">
-    <h1 id="mainHeading">Country REPORT</h1>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-auto " href="#">Country Report</a>
+    </div>
+  </nav>
   <center>
     <?php
     $servername = "localhost";
@@ -30,7 +31,7 @@
     if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
     } else {
-      echo "<h3>country data</h3>";
+      echo "<br><br>";
     }
 
     $sql = "SELECT country , COUNT(*)  FROM students_login GROUP BY country";
@@ -61,10 +62,9 @@
 
     $conn->close();
     ?>
-  </center>
-
-  <center>
-    <h3><a href="admin-home.php" style="text-decoration: none">Back to Admin Section</a></h3>
+    <br>
+    <br>
+    <h3><a href="Admin-home.php" class="btn btn-danger">Back to Admin Home</a></h3>
   </center>
 
 </body>

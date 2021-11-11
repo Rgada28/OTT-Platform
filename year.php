@@ -1,19 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head lang="en">
-    <title></title>
-    <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="reports.css">
-    
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="reports.css">
+
 </head>
+
 <body>
-  <div class="container-fluid text-center" style="height:120px; background-color:#CBE432; opacity:0.9;">
-      <h1 id="mainHeading">YEARLY REPORT</h1>  
-  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-auto " href="#">Yearly Report</a>
+    </div>
+  </nav>
   <center>
     <?php
     $servername = "localhost";
@@ -25,43 +28,45 @@
     $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
-    else{
-      echo "<h3>yearly data</h3>";
+      die("Connection failed: " . $conn->connect_error);
+    } else {
+      echo "<br>
+      <br>";
     }
 
-  $sql = "SELECT year, SUM(amount) FROM payment GROUP BY year";
+    $sql = "SELECT year, SUM(amount) FROM payment GROUP BY year";
     $result = $conn->query($sql);
 
-  
 
-echo"<table>
+
+    echo "<table>
     <tr>
               <td width= 50%>year</td>
               <td width=50%>sales amount</td> 
-            </tr>";          
-        
-        echo "</table>";
+            </tr>";
+
+    echo "</table>";
 
 
-  while($row = $result->fetch_assoc()){
-        // output data of each row
+    while ($row = $result->fetch_assoc()) {
+      // output data of each row
 
-  echo"<table>
+      echo "<table>
     <tr>
-              <td width= 50%>" .$row["year"]. "</td>
-              <td width=50%>" .$row['SUM(amount)']. "</td> 
-            </tr>";          
-        
-        echo "</table>";
-    } 
+              <td width= 50%>" . $row["year"] . "</td>
+              <td width=50%>" . $row['SUM(amount)'] . "</td> 
+            </tr>";
+
+      echo "</table>";
+    }
 
     $conn->close();
-    ?> 
+    ?>
+    <br>
+    <br>
+    <a href="Admin-home.php" class="btn btn-danger">Back to Admin Home</a>
   </center>
 
- <center> <h3><a href="Admin-home.php" style="text-decoration: none">Back to Admin Section</a></h3></center>
-
 </body>
+
 </html>

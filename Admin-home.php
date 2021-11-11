@@ -16,7 +16,7 @@
             margin-top:
                 10%;
             box-shadow:
-                10px 20px 50px black;
+                5px 5px 50px grey;
         }
 
         .b-example-divider {
@@ -74,7 +74,7 @@
                     </ul>
                 </div>
             </div>
-
+        </div>
     </nav>
     <div class="row">
         <div class="col-md-4">
@@ -105,7 +105,7 @@
             </div>
         </div>
     </div>
-    <!-- <script src="bootstrap.bundle.min.js"></script> -->
+    <script src="bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
