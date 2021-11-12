@@ -8,7 +8,7 @@ function register()
 	$email = $_POST['ename'];
 	$contact = $_POST['cname'];
 	$choice = $_POST['radio'];
-	$amount = 200;
+	$amount = $_POST['amount'];
 	$day = $_POST['day'];
 	$month = $_POST['month'];
 	$year = $_POST['year'];
@@ -19,16 +19,13 @@ function register()
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "INSERT INTO payment (name, email, contact, choice,amount,day,month,year) VALUES ('$name', '$email', $contact, '$choice','$amount',$day,'$month',$year)";
+	$sql = "INSERT INTO payment (name, email, contact, choice,amount,day,month,year) VALUES ('$name', '$email', $contact, '$choice',$amount,$day,'$month',$year)";
 
 
 
-	if ($conn->query($sql) === TRUE) {
-		  header("Location: index.php");
+	if ($conn->query($sql) === FALSE) {
+		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
-else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 	$conn->close();
 }
@@ -54,7 +51,6 @@ else {
 	<link href="bootstrap.min.css" rel="stylesheet">
 </head>
 
-<<<<<<< Updated upstream
 <body class="text-center">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
@@ -69,20 +65,6 @@ else {
 		<br><br>
 		<input type="text" name="ename" placeholder="E-mail" required>*<br><br>
 		<input type="text" name="cname" placeholder="Phone no" maxlength="10" required>*<br><br>
-=======
-<body background="p1.jpg">
-
-	<form class="fossil" name="f1" method="post">
-		<center>
-			<h1>Payment</h1>
-		</center>
-		<b>Name</b>:&nbsp;
-		<input type="text" name="name" required>*<br><br>
-		<b>email</b>:&nbsp;
-		<input type="text" name="ename" required>*<br><br><br>
-		<b>contact no</b>:&nbsp;
-		<input type="text" name="cname" maxlength="10" required>*<br><br><br>
->>>>>>> Stashed changes
 		<b>Day</b>:<select name="day" size="1" id="day">
 			<option>1</option>
 			<option>2</option>
@@ -151,7 +133,6 @@ else {
 		<br><br>
 		<div class="row">
 			<div class="col-50">
-<<<<<<< Updated upstream
 				
 				<input type="text" id="expyear" name="expyear" placeholder="Expiry year " required name=expyear maxlength="4">
 			</div><br><br>
@@ -163,18 +144,6 @@ else {
 				<input type="reset" class="btn-danger" value="Reset" name="rbutton">
 				<br><br>
 				<h3><a href="index.php" class="btn btn-warning">Back to Home</a></h3>
-=======
-				<label for="expyear"><b>Exp Year</b></label>
-				<input type="text" id="expyear" name="expyear" required name=expyear maxlength="4">
-			</div><br>
-			</div>
-			
-<br><br>
-			
-			<input  class="btn-success" style="width: 25%;" id="submit" type="submit" name="submit" value="submit" onclick="feedb()">&nbsp;&nbsp;&nbsp;
-			<input type="reset" class="btn-danger" style="width: 25%;" value="Reset" name="rbutton">
-			<h3><a href="index.php" style="text-decoration: none">Back to Home</a></h3
->>>>>>> Stashed changes
 	</form>
 
 
@@ -186,7 +155,11 @@ else {
 	}
 
 	?>
-	
+	<script>
+		function feedb() {
+			alert("Payment Successful");
+		}
+	</script>
 </body>
 
 </html>

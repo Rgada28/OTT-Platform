@@ -51,7 +51,6 @@
         <li><a href="month.php">Monthly Report</a></li>
         <li><a href="year.php">Yearly Report</a></li>
         <li><a href="pi.php">subscricer per month</a></li>
-         <li><a href="uploadimage.php">Upload new movies / series</a></li>
       </ul><br>
       <div class="input-group">
         <span class="input-group-btn">

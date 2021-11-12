@@ -29,7 +29,7 @@
                     <li class="menu-list-item">Movies</li>
                     <li class="menu-list-item">Series</li>
                     <li class="menu-list-item">Popular</li>
-                    <li class="menu-list-item"><a href="subscription.php" style="color:white">Payment</a></li>
+                    <li class="menu-list-item">Trends</li>
                 </ul>
                 <div class="profile-container">
                     <img class="profile-picture" src="img/profile.png" alt="">

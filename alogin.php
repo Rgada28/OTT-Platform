@@ -18,7 +18,7 @@ function registration()
 
     if ($n > 0) {
         //echo "Accessed";
-        header("Location: month.php");
+        header("Location: Admin-home.php");
     } else {
         echo "<b>Authentication failed!</b>";
     }
