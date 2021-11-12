@@ -59,7 +59,7 @@ if ($conn->connect_error) {
                     <input type='password' name="password" id="pass" class='input-field' placeholder='Enter Password' required>
                     <input type='checkbox' class='check-box'><label style="color: white;">Remember Password</label>
                     <button type='submit' class='submit-btn' name="submit" value="submit">Log in</button>
-                    <br><label style="color: white;">New to Flakes? </label><a href="register.php" ; style="color:white" ;>Register</a>
+                    <br><label style="color: white;">New to Netflix? </label><a href="register.php" ; style="color:white" ;>Register</a>
                     <div>&nbsp;</div>
                 </form>
               

@@ -1,9 +1,6 @@
 <?php
-
-
 function register()
 {
-
 	$name = $_POST['name'];
 	$email = $_POST['ename'];
 	$contact = $_POST['cname'];
@@ -20,16 +17,14 @@ function register()
 	}
 
 	$sql = "INSERT INTO payment (name, email, contact, choice,amount,day,month,year) VALUES ('$name', '$email', $contact, '$choice',$amount,$day,'$month',$year)";
-
-
-
-	if ($conn->query($sql) === FALSE) {
+	if ($conn->query($sql) === TRUE) {
+		echo "New record created successfully";
+	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 
 	$conn->close();
 }
-
 ?>
 
 
@@ -61,10 +56,10 @@ function register()
 	<form method="post" action="index.php">
 		<br>
 		<br>
-		<input type="text" name="name"  placeholder="Name" required>*
+		<input type="text" name="name" placeholder="Name" required>*
 		<br><br>
 		<input type="text" name="ename" placeholder="E-mail" required>*<br><br>
-		<input type="text" name="cname" placeholder="Phone no" maxlength="10" required>*<br><br>
+		<input type="number" name="cname" pattern="[0-9]" placeholder="Phone no" maxlength="10" required>*<br><br>
 		<b>Day</b>:<select name="day" size="1" id="day">
 			<option>1</option>
 			<option>2</option>
@@ -111,7 +106,7 @@ function register()
 		</select><br><br>
 
 		<input type="text" maxlength="16" placeholder="Card number" name="cardno" required>*<br><br>
-		<input type="text" name="cvv" maxlength="3" placeholder="xxx" required>*<br><br>
+		<input type="password" name="cvv" maxlength="3" placeholder="cvv" required>*<br><br>
 		<b>Choice</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<b>Debit</b><input type="radio" value="Debit" name="radio" required>&nbsp;&nbsp;&nbsp;
 		<b>Credit</b><input type="radio" value="Credit" name="radio" required><br><br>
@@ -131,29 +126,24 @@ function register()
 			<option>December</option>
 		</select>
 		<br><br>
-		<div class="row">
-			<div class="col-50">
-				
-				<input type="text" id="expyear" name="expyear" placeholder="Expiry year " required name=expyear maxlength="4">
-			</div><br><br>
-			<b>amount
-				<b>400</b><input type="radio" value="400" name="amount" required>&nbsp;&nbsp;&nbsp;
-				<b>200</b><input type="radio" value="200" name="amount" required><br><br>
-				<b>1200</b><input type="radio" value="1200" name="amount" required><br><br>
-				<input class="btn-success" id="submit" type="submit" onclick="feedb()">&nbsp;&nbsp;&nbsp;
-				<input type="reset" class="btn-danger" value="Reset" name="rbutton">
-				<br><br>
-				<h3><a href="index.php" class="btn btn-warning">Back to Home</a></h3>
+
+		<input type="text" id="expyear" maxlength="4" name="expyear" placeholder="Expiry year " required name=expyear maxlength="4">
+		<br><br><b>amount</b>
+		<b>400</b><input type="radio" value="400" name="amount" required>&nbsp;&nbsp;&nbsp;
+		<b>200</b><input type="radio" value="200" name="amount" required><br><br>
+		<b>1200</b><input type="radio" value="1200" name="amount" required><br><br>
+		<input class="btn-success" id="submit" type="submit" onclick="feedb()">&nbsp;&nbsp;&nbsp;
+		<input type="reset" class="btn-danger" value="Reset" name="rbutton">
+		<br><br>
+		<h3><a href="index.php" class="btn btn-warning">Back to Home</a></h3>
 	</form>
 
 
 
 	<?php
-
 	if (isset($_POST['submit']) && $_POST['submit'] == "submit") {
 		register();
 	}
-
 	?>
 	<script>
 		function feedb() {

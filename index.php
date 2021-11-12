@@ -29,10 +29,10 @@
                     <li class="menu-list-item">Movies</li>
                     <li class="menu-list-item">Series</li>
                     <li class="menu-list-item">Popular</li>
-                    <li class="menu-list-item">Trends</li>
+                    <a href='subscription.php' class='login-button'>Subscription</a>
                 </ul>
                 <div class="profile-container">
-                    <img class="profile-picture" src="img/profile.png" alt="">
+                    <img class="profile-picture" src="img/profile.png" alt="">&nbsp;&nbsp;
                     <div class="profile-text-container">
                         <?php
                         if (session_status() === PHP_SESSION_NONE) {
@@ -40,13 +40,13 @@
                             
                         } else {
                             session_destroy();
-                            echo "<span><a href='login.php' class='login-button'>Logout</a></span>";                            
+                            echo "<span><a href='login.php' class='login-button'>Logout</a></span>&nbsp;&nbsp;";                            
                             
                         }
                         ?>
 
                         <!-- <i class="fas fa-caret-down"></i> -->
-                    </div>
+                    </div>&nbsp;&nbsp;
                     <div class="toggle">
                         <i class="fas fa-moon toggle-icon"></i>
                         <i class="fas fa-sun toggle-icon"></i>

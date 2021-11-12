@@ -48,11 +48,11 @@ if (isset($_POST['uploadfilesub'])) {
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand mx-auto " href="#">Add Movie</a>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-auto " href="#">Add Movie</a>
+        </div>
+    </nav>
     <center>
         <form action="" method="post" enctype="multipart/form-data">
             <br>
