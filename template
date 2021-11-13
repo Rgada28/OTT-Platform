@@ -36,7 +36,7 @@
             <nav class="navbar-dark"        >
                 <ul class="navbar-nav">
                     <li class="m-2">
-                        <a href="#" class="nav-link btn-danger text-center active px-3">                        
+                        <a href="Admin-home.php" class="nav-link  text-center active px-3">                        
                         <span>Home</span>
                         </a>
                     </li>
@@ -55,17 +55,17 @@
                             <span>Type</span>
                         </a>
                     </li>
-                    <li class="m-2">
-                        <a href="Paymentinfo.php" class="nav-link  text-center px-3">
-                            <span>Payment report</span>
+                    <!-- <li class="m-2">
+                        <a href="type.php" class="nav-link active btn-danger text-center px-3">
+                            <span>Type</span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </nav>
         </div>
     </div>    
     <main class="mt-5 pt-5 p-2 text-center">
-   <H1>Welcome Admin</H1>
+   <!-- Content here -->
     </main>
     <script src="bootstrap.bundle.min.js"></script>
 </body>

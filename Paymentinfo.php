@@ -8,6 +8,25 @@
     <link href="bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="admin.css">
+    <style>
+	table {
+	    font-family: arial, sans-serif;
+	    border-collapse: collapse;
+	    width: 50%;
+	    
+	}
+
+	td, th {
+	    border: 3px solid #340926;
+	    text-align: left;
+	    border-radius: 25px;
+	    padding: 8px;
+	}
+
+	/*tr:nth-child(even) {
+	    background-color: #dddddd;
+	}*/
+</style>
 </head>
 
 <body>
@@ -36,7 +55,7 @@
             <nav class="navbar-dark"        >
                 <ul class="navbar-nav">
                     <li class="m-2">
-                        <a href="#" class="nav-link btn-danger text-center active px-3">                        
+                        <a href="Admin-home.php" class="nav-link  text-center active px-3">                        
                         <span>Home</span>
                         </a>
                     </li>
@@ -56,7 +75,7 @@
                         </a>
                     </li>
                     <li class="m-2">
-                        <a href="Paymentinfo.php" class="nav-link  text-center px-3">
+                        <a href="Paymentinfo.php" class="nav-link active btn-danger text-center px-3">
                             <span>Payment report</span>
                         </a>
                     </li>
@@ -65,7 +84,56 @@
         </div>
     </div>    
     <main class="mt-5 pt-5 p-2 text-center">
-   <H1>Welcome Admin</H1>
+   <!-- Content here -->
+   <center>
+		<?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "project";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+		} 
+		else{
+			echo "<h3>Payment details</h3>";
+		}
+
+		$sql = "SELECT name, email, contact,amount FROM payment";
+		$result = $conn->query($sql);
+
+		if ($result->num_rows > 0) {
+		    // output data of each row
+			echo"<table>
+		    <tr>
+					    <th>Name</th>
+					    <th>Email</th>
+					    <th>Contact</th>
+					    <th>Amount</th>
+			
+					  </tr>";
+		    while($row = $result->fetch_assoc()) {
+					  echo"
+					  <tr>
+					    <td>" .$row["name"]. "</td>
+					    <td>" .$row["email"]. "</td>
+					    <td>" .$row["contact"]. "</td>
+					    <td>" .$row["amount"]. "</td>
+					    
+					  </tr>";
+					
+		    }
+		    echo "</table>";
+		} else {
+		    echo "0 results";
+		}
+
+		$conn->close();
+		?> 
+	</center>
     </main>
     <script src="bootstrap.bundle.min.js"></script>
 </body>

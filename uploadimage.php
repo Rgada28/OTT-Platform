@@ -10,6 +10,8 @@ if ($conn) {
 if (isset($_POST['uploadfilesub'])) {
     $genere = $_POST['genere'];
     $name = $_POST['name'];
+    $type = $_POST['type'];
+
     //declaring variables
     $filename = $_FILES['uploadfile']['name'];
     $filetmpname = $_FILES['uploadfile']['tmp_name'];
@@ -18,7 +20,7 @@ if (isset($_POST['uploadfilesub'])) {
     //function for saving the uploaded images in a specific folder
     move_uploaded_file($filetmpname, $folder . $filename);
     //inserting image details (ie image name) in the database
-    $sql = "INSERT INTO `uploadedimage` (`imagename`,`genere`,`name`)  VALUES ('$filename','$genere','$name')";
+    $sql = "INSERT INTO `uploadedimage` (`imagename`,`genere`,`name`,`type`)  VALUES ('$filename','$genere','$name','$type')";
     $qry = mysqli_query($conn,  $sql);
     if ($qry) {
 
@@ -49,7 +51,7 @@ if (isset($_POST['uploadfilesub'])) {
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand mx-auto " href="#">Admin home</a>
             <div class="dropdown">
@@ -67,46 +69,54 @@ if (isset($_POST['uploadfilesub'])) {
             </div>
         </div>
     </nav>
-    <div class="offcanvas offcanvas-start bg-dark sidebar-nav" tabindex="-1" >
+    <div class="offcanvas offcanvas-start bg-dark sidebar-nav" tabindex="-1">
         <!-- <div class="offcanvas-header">            
         </div> -->
         <div class="offcanvas-body p-0 text-white">
-            <nav class="navbar-dark"        >
+            <nav class="navbar-dark">
                 <ul class="navbar-nav">
-                    <li class="m-4">
-                        <a href="Admin-home.php" class="nav-link  text-center active px-3">                        
-                        <span>Home</span>
+                    <li class="m-2">
+                        <a href="Admin-home.php" class="nav-link  text-center active px-3">
+                            <span>Home</span>
                         </a>
                     </li>
-                    <li class="m-4">
-                        <a href="pi.php" class="nav-link text-center px-3">                        
-                        <span>categories report</span>
+                    <li class="m-2">
+                        <a href="pi.php" class="nav-link text-center px-3">
+                            <span>categories report</span>
                         </a>
                     </li>
-                    <li class="m-4">
-                        <a href="uploadimage.php" class="nav-link btn-danger text-center px-3">                        
-                        <span>Add Content</span>
+                    <li class="m-2">
+                        <a href="uploadimage.php" class="nav-link active btn-danger text-center px-3">
+                            <span>Add Content</span>
+                        </a>
+                    </li>
+                    <li class="m-2">
+                        <a href="type.php" class="nav-link text-center px-3">
+                            <span>Type</span>
+                        </a>
+                    </li>
+                    <li class="m-2">
+                        <a href="Paymentinfo.php" class="nav-link text-center px-3">
+                            <span>Payment report</span>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
-    </div>    
+    </div>
     <main class="mt-5 pt-5 p-2 text-center">
         <form action="" method="post" enctype="multipart/form-data">
-            <br>
-            <br>
+            <!--input tag for file types should have a "type" attribute with value "file"-->
             <input type="file" name="uploadfile" /><br><br>
-            <input type="text" name="genere" placeholder="Genere" /><br><br>
-            <input type="text" name="name" placeholder="Name" /><br><br>
-            <input class="btn btn-warning" type="submit" name="uploadfilesub" value="upload" />
+            <input type="text" name="genere" placeholder='genere' /><br><br>
+            <input type="text" name="name" placeholder='Name' /><br><br>
+            <input type="text" name="type" placeholder='type' /><br><br>
+            <input type="submit" class="btn-danger" name="uploadfilesub" value="upload" />
             <br>
             <br>
-            <a href="Admin-home.php" class="btn btn-danger">Back to Admin Home</a>
-
-
+            <a href="Admin-home.php" class="btn btn-warning">Back to Admin Home</a>
         </form>
-        </main>
+    </main>
     <script src="bootstrap.bundle.min.js"></script>
 </body>
 
