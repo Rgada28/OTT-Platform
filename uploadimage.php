@@ -31,6 +31,7 @@ if (isset($_POST['uploadfilesub'])) {
 <!DOCTYPE html>
 <html>
 <link href="bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
 
 <head>
     <style>
@@ -48,12 +49,50 @@ if (isset($_POST['uploadfilesub'])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand mx-auto " href="#">Add Movie</a>
+            <a class="navbar-brand mx-auto " href="#">Admin home</a>
+            <div class="dropdown">
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="img/profile.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownUser2">
+
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="alogin.php">Sign out</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
-    <center>
+    <div class="offcanvas offcanvas-start bg-dark sidebar-nav" tabindex="-1" >
+        <!-- <div class="offcanvas-header">            
+        </div> -->
+        <div class="offcanvas-body p-0 text-white">
+            <nav class="navbar-dark"        >
+                <ul class="navbar-nav">
+                    <li class="m-4">
+                        <a href="Admin-home.php" class="nav-link  text-center active px-3">                        
+                        <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="m-4">
+                        <a href="pi.php" class="nav-link text-center px-3">                        
+                        <span>categories report</span>
+                        </a>
+                    </li>
+                    <li class="m-4">
+                        <a href="uploadimage.php" class="nav-link btn-danger text-center px-3">                        
+                        <span>Add Content</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>    
+    <main class="mt-5 pt-5 p-2 text-center">
         <form action="" method="post" enctype="multipart/form-data">
             <br>
             <br>
@@ -67,7 +106,8 @@ if (isset($_POST['uploadfilesub'])) {
 
 
         </form>
-    </center>
+        </main>
+    <script src="bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

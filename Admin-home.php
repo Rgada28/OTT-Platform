@@ -1,110 +1,62 @@
-<?php
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 
-?>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin home</title>
+<head lang="en">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="bootstrap.min.css" rel="stylesheet">
-    <style>
-        .card-style {
-            width: 18rem;
-            left: 15%;
-            margin-top:
-                10%;
-            box-shadow:
-                5px 5px 50px grey;
-        }
-
-        .b-example-divider {
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-        .form-control-dark {
-            color: #fff;
-            background-color: var(--bs-dark);
-            border-color: var(--bs-gray);
-        }
-
-        .form-control-dark:focus {
-            color: #fff;
-            background-color: var(--bs-dark);
-            border-color: #fff;
-            box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
-        }
-
-        .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
-        }
-
-        .text-small {
-            font-size: 85%;
-        }
-
-        .dropdown-toggle {
-            outline: 0;
-        }
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="admin.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand mx-auto " href="#">Admin Home</a>
-            <div class="align-items-center">
-                <div class="dropdown">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="img/profile.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownUser2">
+            <a class="navbar-brand mx-auto " href="#">Admin home</a>
+            <div class="dropdown">
+                <a href="Admin-home.php" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="img/profile.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownUser2">
 
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="alogin.php">Sign out</a></li>
-                    </ul>
-                </div>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="alogin.php">Sign out</a></li>
+                </ul>
             </div>
         </div>
     </nav>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card card-style">
-                <div class="card-body text-center">
-                    <h5 class="card-title ">Monthly reports</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="month.php" class="btn btn-info text-center">check reports</a>
-                </div>
-            </div>
+    <div class="offcanvas offcanvas-start bg-dark sidebar-nav" tabindex="-1" >
+        <!-- <div class="offcanvas-header">            
+        </div> -->
+        <div class="offcanvas-body p-0 text-white">
+            <nav class="navbar-dark"        >
+                <ul class="navbar-nav">
+                    <li class="m-4">
+                        <a href="#" class="nav-link btn-danger text-center active px-3">                        
+                        <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="m-4">
+                        <a href="pi.php" class="nav-link  text-center px-3">                        
+                        <span>categories report</span>
+                        </a>
+                    </li>
+                    <li class="m-4">
+                        <a href="uploadimage.php" class="nav-link text-center px-3">                        
+                        <span>Add Content</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <div class="col-md-4">
-            <div class="card card-style">
-                <div class="card-body text-center">
-                    <h5 class="card-title ">Yearly reports</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="year.php" class="btn btn-info text-center">check reports</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card card-style">
-                <div class="card-body text-center">
-                    <h5 class="card-title ">Country reports</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="country.php" class="btn btn-info text-center">check reports</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div>    
+    <main class="mt-5 pt-5 p-2 text-center">
+   <H1>Welcome Admin</H1>
+    </main>
     <script src="bootstrap.bundle.min.js"></script>
 </body>
 
