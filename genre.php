@@ -1,3 +1,8 @@
+<?php
+$connect = mysqli_connect("localhost", "root", "", "project");
+$query = "SELECT genere, count(*) as amount FROM uploadedimage GROUP BY genere";
+$result = mysqli_query($connect, $query);
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -8,6 +13,32 @@
     <link href="bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Gender', 'Number'],
+        <?php
+        while ($row = mysqli_fetch_array($result)) {
+          echo "['" . $row["genere"] . "', " . $row["amount"] . "],";
+        }
+        ?>
+      ]);
+      var options = {
+        // title: 'Distribution of category',
+        is3D:true,  
+        pieHole: 0.4
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+  </script>
     <style>
 	table {
 	    font-family: arial, sans-serif;
@@ -85,7 +116,10 @@
         </div>
     </div>    
     <main class="mt-5 pt-5 p-2 text-center">
+        <h1 class="text-center m-2"> Genre distribution </H1>
+   
     <center>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
     <?php
     $servername = "localhost";
     $username = "root";
@@ -131,7 +165,6 @@
     ?>
     <br>
     <br>
-    <h3><a href="Admin-home.php" class="btn btn-danger">Back to Admin Home</a></h3>
 
   </center>
     </main>

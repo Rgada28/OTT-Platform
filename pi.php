@@ -1,6 +1,6 @@
 <?php
 $connect = mysqli_connect("localhost", "root", "", "project");
-$query = "SELECT month, count(*) as amount FROM payment GROUP BY month";
+$query = "SELECT amount, count(*) as count  FROM payment GROUP BY amount";
 $result = mysqli_query($connect, $query);
 ?>
 <!DOCTYPE html>
@@ -26,14 +26,14 @@ $result = mysqli_query($connect, $query);
         ['Gender', 'Number'],
         <?php
         while ($row = mysqli_fetch_array($result)) {
-          echo "['" . $row["month"] . "', " . $row["amount"] . "],";
+          echo "['" . $row["amount"] . "', " . $row["count"] . "],";
         }
         ?>
       ]);
       var options = {
-        title: 'number of subscription per  month',
-        //is3D:true,  
-        pieHole: 0.4
+        
+        is3D:true,  
+        // pieHole: 0.1
       };
       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
       chart.draw(data, options);
@@ -133,6 +133,7 @@ $result = mysqli_query($connect, $query);
         </div>
     </div>    
     <main class="mt-5 pt-5 p-2 text-center">
+    <h1 class="text-center m-2">Amount Distribution </H1>
     <div id="piechart" style="width: 900px; height: 500px;"></div>
   </main>
 

@@ -1,23 +1,62 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<?php
+$connect = mysqli_connect("localhost", "root", "", "project");
+$query = "SELECT type, count(*) as genere FROM uploadedimage GROUP BY type";
+$result = mysqli_query($connect, $query);
+?>
+<!DOCTYPE html>
+<html lang="en">
 
-<head lang="en">
-    <title></title>
+<head>
+    <title>Bootstrap Example</title>
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Gender', 'Number'],
+                <?php
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "['" . $row["type"] . "', " . $row["genere"] . "],";
+                }
+                ?>
+            ]);
+            var options = {
+                
+                is3D:true,  
+                // pieHole: 0.4
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+        }
+    </script>
     <style>
-        #mainHeading {
-            color: #340926;
-            padding-top: 28px;
-            letter-spacing: 4px;
-            font-family: Montserrat, sans-serif;
-            font-weight: bolder;
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content {
+            height: 1500px
         }
 
-        table {
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        } table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 50%;
@@ -31,11 +70,24 @@
             border-radius: 25px;
             padding: 8px;
         }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
     </style>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand mx-auto " href="#">Admin home</a>
             <div class="dropdown">
@@ -53,29 +105,29 @@
             </div>
         </div>
     </nav>
-    <div class="offcanvas offcanvas-start bg-dark sidebar-nav" tabindex="-1" >
+    <div class="offcanvas offcanvas-start bg-dark sidebar-nav" tabindex="-1">
         <!-- <div class="offcanvas-header">            
         </div> -->
         <div class="offcanvas-body p-0 text-white">
             <nav class="navbar-dark">
                 <ul class="navbar-nav">
                     <li class="border border-light">
-                        <a href="Admin-home.php" style="font-size: larger;" class="nav-link  text-center  px-3">                        
-                        <span>Home</span>
+                        <a href="Admin-home.php" style="font-size: larger;" class="nav-link  text-center  px-3">
+                            <span>Home</span>
                         </a>
                     </li>
                     <li class="border border-light">
-                        <a href="pi.php" style="font-size: larger;" class="nav-link  text-center px-3">                        
-                        <span>categories report</span>
+                        <a href="pi.php" style="color: White; font-size: larger;" class="nav-link  text-center px-3">
+                            <span>categories report</span>
                         </a>
                     </li>
                     <li class="border border-light ">
-                        <a href="uploadimage.php" style="font-size: larger;"  class="nav-link text-center px-3">                        
-                        <span>Add Content</span>
+                        <a href="uploadimage.php" style="color: White; font-size: larger;" class="nav-link text-center px-3">
+                            <span>Add Content</span>
                         </a>
                     </li>
                     <li class="border border-light">
-                        <a href="type.php" style="color: White; font-size: larger;" class="nav-link active btn-danger text-center px-3">
+                        <a href="type.php" style="font-size: larger;" class="btn-danger active nav-link text-center px-3">
                             <span>Type</span>
                         </a>
                     </li>
@@ -92,8 +144,10 @@
                 </ul>
             </nav>
         </div>
-    </div>    
+    </div>
     <main class="mt-5 pt-5 p-2 text-center">
+    <h1 class="text-center m-2">Movies and Series distribution</H1>
+        <div id="piechart" style="width: 900px; height: 500px;"></div>
         <center>
         <?php
         $servername = "localhost";
@@ -137,8 +191,9 @@
         ?>
         </center>
         <br><br>        
+    
     </main>
-    <script src="bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

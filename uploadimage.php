@@ -58,6 +58,7 @@ if (isset($_POST['uploadfilesub'])) {
             padding: 8px;
         }
     </style>
+    <title>Add content</title>
 </head>
 
 <body>

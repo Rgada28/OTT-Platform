@@ -2,7 +2,7 @@
 <html>
 
 <head lang="en">
-    <title></title>
+    <title>Admin Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="bootstrap.min.css" rel="stylesheet">
