@@ -47,6 +47,16 @@ if (isset($_POST['uploadfilesub'])) {
             box-shadow: 1px 1px 2px 1px grey;
             font-weight: bold
         }
+        table{
+            margin-left: 25px;
+        }
+        td,
+        th {
+            border: 3px solid #340926;
+            text-align: left;
+            border-radius: 25px;
+            padding: 8px;
+        }
     </style>
 </head>
 
@@ -119,8 +129,59 @@ if (isset($_POST['uploadfilesub'])) {
             <input type="submit" class="btn-danger" name="uploadfilesub" value="upload" />
             <br>
             <br>
-            <a href="Admin-home.php" class="btn btn-warning">Back to Admin Home</a>
+            <br>
         </form>
+        <?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "project";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+		} 
+		else{
+			echo "<h3>Content Details</h3>";
+		}
+
+		$sql = "SELECT imagename, genere, name,type FROM uploadedimage";
+		$result = $conn->query($sql);
+
+		if ($result->num_rows > 0) {
+		    // output data of each row
+			echo"<table>
+		    <tr>
+					    <th  style='width: 200px;'>Image</th>                        
+					    <th style='width: 200px;' >Name</th>
+					    <th style='width: 200px;' >Genre</th>
+					    <th style='width: 200px;'>Type</th>
+                        <th style='width: 200px;'>Actions</th>
+			
+					  </tr>";
+		    while($row = $result->fetch_assoc()) {?>
+					  
+					  <tr>
+					    <td><img style="width: 100%; height: 100px;" src="img/<?php echo $row["imagename"];?>"/> </td>
+                        <?php echo
+					    "<td class='text-center'>" .$row["name"]. "</td> 
+					    <td class='text-center'>" .$row["genere"]. "</td>
+					    <td class='text-center'>" .$row["type"]. "</td>
+					    <td> <a href='#' class='btn  btn-warning'> Edit</a>
+                        <a href='#' class='btn  btn-danger'> delete</a>
+                        </td>
+					  </tr>";
+					
+		    }
+		    echo "</table>";
+		} else {
+		    echo "0 results";
+		}
+
+		$conn->close();
+		?> 
     </main>
     <script src="bootstrap.bundle.min.js"></script>
 </body>
