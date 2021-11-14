@@ -9,33 +9,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="admin.css">
     <style>
-        #mainHeading {
-            color: #340926;
-            padding-top: 28px;
-            letter-spacing: 4px;
-            font-family: Montserrat, sans-serif;
-            font-weight: bolder;
-        }
+	table {
+	    font-family: arial, sans-serif;
+	    border-collapse: collapse;
+	    width: 50%;
+	    
+	}
 
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 50%;
-
-        }
-
-        td,
-        th {
-            border: 1px solid #340926;
-            text-align: left;
-            border-radius: 25px;
-            padding: 8px;
-        }
-    </style>
+	td, th {
+	    border: 1px solid #340926;
+	    text-align: left;
+	    border-radius: 25px;
+	    padding: 8px;
+	}
+</style>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand mx-auto " href="#">Admin home</a>
             <div class="dropdown">
@@ -75,17 +66,17 @@
                         </a>
                     </li>
                     <li class="border border-light">
-                        <a href="type.php" style="color: White; font-size: larger;" class="nav-link active btn-danger text-center px-3">
+                        <a href="type.php" style="font-size: larger;" class="nav-link text-center px-3">
                             <span>Type</span>
                         </a>
                     </li>
                     <li class="border border-light">
-                        <a href="Paymentinfo.php" style="font-size: larger;" class="nav-link  text-center px-3">
+                        <a href="Paymentinfo.php" style="font-size: larger;" class="nav-link text-center px-3">
                             <span>Payment report</span>
                         </a>
                     </li>
                     <li class="border border-light">
-                        <a href="genre.php" style="font-size: larger;" class="nav-link   text-center px-3">
+                        <a href="#" style="color: White; font-size: larger;" class="nav-link btn-danger active  text-center px-3">
                             <span>Genre</span>
                         </a>
                     </li>
@@ -94,49 +85,55 @@
         </div>
     </div>    
     <main class="mt-5 pt-5 p-2 text-center">
-        <center>
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "project";
+    <center>
+    <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "project";
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        } else {
-            echo "<br><br>";
-        }
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    } else {
+      echo "<br><br>";
+    }
 
-        $sql = "SELECT type , COUNT(*)  FROM uploadedimage GROUP BY type";
-        $result = $conn->query($sql);
-
-
-
-        echo "<table>
-                    <tr>
-                        <td width= 50%>type</td>
-                        <td width=50%>no. of series</td> 
-                    </tr>";
-        echo "</table>";
+    $sql = "SELECT genere , COUNT(*)  FROM uploadedimage GROUP BY genere";
+    $result = $conn->query($sql);
 
 
-        while ($row = $result->fetch_assoc()) {
-            // output data of each row
-            echo "<table>
-                        <tr>
-                            <td width= 50%>" . $row["type"] . "</td>
-                            <td width=50%>" . $row['COUNT(*)'] . "</td> 
-                        </tr>";
-            echo "</table>";
-        }
 
-        $conn->close();
-        ?>
-        </center>
-        <br><br>        
+    echo "<table>
+    <tr>
+              <td width= 50%>Genere</td>
+              <td width=50%>no. of series</td> 
+            </tr>";
+
+    echo "</table>";
+
+
+    while ($row = $result->fetch_assoc()) {
+      // output data of each row
+
+      echo "<table>
+    <tr>
+              <td width= 50%>" . $row["genere"] . "</td>
+              <td width=50%>" . $row['COUNT(*)'] . "</td> 
+            </tr>";
+
+      echo "</table>";
+    }
+
+    $conn->close();
+    ?>
+    <br>
+    <br>
+    <h3><a href="Admin-home.php" class="btn btn-danger">Back to Admin Home</a></h3>
+
+  </center>
     </main>
     <script src="bootstrap.bundle.min.js"></script>
 </body>

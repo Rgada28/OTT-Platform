@@ -33,31 +33,36 @@
         <!-- <div class="offcanvas-header">            
         </div> -->
         <div class="offcanvas-body p-0 text-white">
-            <nav class="navbar-dark"        >
+            <nav class="navbar-dark">
                 <ul class="navbar-nav">
-                    <li class="m-2">
-                        <a href="#" class="nav-link btn-danger text-center active px-3">                        
+                    <li class="border border-light">
+                        <a href="#" style="color: White; font-size: larger;" class="nav-link btn-danger text-center active px-3">                        
                         <span>Home</span>
                         </a>
                     </li>
-                    <li class="m-2">
-                        <a href="pi.php" class="nav-link  text-center px-3">                        
+                    <li class="border border-light">
+                        <a href="pi.php" style="font-size: larger;" class="nav-link  text-center px-3">                        
                         <span>categories report</span>
                         </a>
                     </li>
-                    <li class="m-2">
-                        <a href="uploadimage.php" class="nav-link text-center px-3">                        
+                    <li class="border border-light ">
+                        <a href="uploadimage.php" style="font-size: larger;" style="color: White; font-size: larger;"  class="nav-link text-center px-3">                        
                         <span>Add Content</span>
                         </a>
                     </li>
-                    <li class="m-2">
-                        <a href="type.php" class="nav-link text-center px-3">
+                    <li class="border border-light">
+                        <a href="type.php" style="font-size: larger;" class="nav-link text-center px-3">
                             <span>Type</span>
                         </a>
                     </li>
-                    <li class="m-2">
-                        <a href="Paymentinfo.php" class="nav-link  text-center px-3">
+                    <li class="border border-light">
+                        <a href="Paymentinfo.php" style="font-size: larger;" class="nav-link  text-center px-3">
                             <span>Payment report</span>
+                        </a>
+                    </li>
+                    <li class="border border-light">
+                        <a href="genre.php" style="font-size: larger;" class="nav-link text-center px-3">
+                            <span>Genre</span>
                         </a>
                     </li>
                 </ul>

@@ -51,11 +51,11 @@ if (isset($_POST['uploadfilesub'])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand mx-auto " href="#">Admin home</a>
             <div class="dropdown">
-                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                <a href="Admin-home.php" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="img/profile.png" alt="mdo" width="32" height="32" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownUser2">
@@ -69,41 +69,46 @@ if (isset($_POST['uploadfilesub'])) {
             </div>
         </div>
     </nav>
-    <div class="offcanvas offcanvas-start bg-dark sidebar-nav" tabindex="-1">
+    <div class="offcanvas offcanvas-start bg-dark sidebar-nav" tabindex="-1" >
         <!-- <div class="offcanvas-header">            
         </div> -->
         <div class="offcanvas-body p-0 text-white">
             <nav class="navbar-dark">
                 <ul class="navbar-nav">
-                    <li class="m-2">
-                        <a href="Admin-home.php" class="nav-link  text-center active px-3">
-                            <span>Home</span>
+                    <li class="border border-light">
+                        <a href="Admin-home.php" style="font-size: larger;" class="nav-link  text-center  px-3">                        
+                        <span>Home</span>
                         </a>
                     </li>
-                    <li class="m-2">
-                        <a href="pi.php" class="nav-link text-center px-3">
-                            <span>categories report</span>
+                    <li class="border border-light">
+                        <a href="pi.php" style="font-size: larger;" class="nav-link  text-center px-3">                        
+                        <span>categories report</span>
                         </a>
                     </li>
-                    <li class="m-2">
-                        <a href="uploadimage.php" class="nav-link active btn-danger text-center px-3">
-                            <span>Add Content</span>
+                    <li class="border border-light ">
+                        <a href="uploadimage.php" style="color: White; font-size: larger;"  class="btn-danger active nav-link text-center px-3">                        
+                        <span>Add Content</span>
                         </a>
                     </li>
-                    <li class="m-2">
-                        <a href="type.php" class="nav-link text-center px-3">
+                    <li class="border border-light">
+                        <a href="type.php" style="font-size: larger;" class="nav-link text-center px-3">
                             <span>Type</span>
                         </a>
                     </li>
-                    <li class="m-2">
-                        <a href="Paymentinfo.php" class="nav-link text-center px-3">
+                    <li class="border border-light">
+                        <a href="Paymentinfo.php" style="font-size: larger;" class="nav-link  text-center px-3">
                             <span>Payment report</span>
+                        </a>
+                    </li>
+                    <li class="border border-light">
+                        <a href="genre.php" style="font-size: larger;" class="nav-link   text-center px-3">
+                            <span>Genre</span>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
-    </div>
+    </div>    
     <main class="mt-5 pt-5 p-2 text-center">
         <form action="" method="post" enctype="multipart/form-data">
             <!--input tag for file types should have a "type" attribute with value "file"-->

@@ -91,9 +91,9 @@
             <thead>
               <tr>
                 <th scope="row" class="text-start"></th>
-                <td><button type="submit" class="w-50 btn btn-lg btn-danger" name="action" value="200">Pay</button></td>
-                <td><button type="submit" class="w-50 btn btn-lg btn-danger" name="action" value="400">Pay</button></td>
-                <td><button type="submit" class="w-50 btn btn-lg btn-danger" name="action" value="1200">Pay</button></td>
+                <td><button type="submit" class="w-50 btn btn-lg btn-danger" name="action" value="200"  formaction="payment.php">Pay</button></td>
+                <td><button type="submit" class="w-50 btn btn-lg btn-danger" name="action" value="400" formaction="payment1.php" >Pay</button></td>
+                <td><button type="submit" class="w-50 btn btn-lg btn-danger" name="action" value="1200" formaction="payment2.php">Pay</button></td>
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>"/>
               </tr>
             </thead>

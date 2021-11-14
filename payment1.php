@@ -5,7 +5,7 @@ function register()
 	$email = $_POST['ename'];
 	$contact = $_POST['cname'];
 	$choice = $_POST['radio'];
-	$amount = 200;
+	$amount = 400;
 	$day = $_POST['day'];
 	$month = $_POST['month'];
 	$year = $_POST['year'];
